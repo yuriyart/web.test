@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Deposite calculator</title>
+</head>
+<body>
+    <div align="center">
+        <div style="width:500px; height:230px; border:double">
+            <div style="text-align: right; cursor: pointer" onclick="window.location='@Url.Action("Index","Settings")'">Settings</div>
+
+            <table align="center">
+                <tr>
+                    <td>Deposit Ammount</td>
+                    <td><input id="amount" onchange="Calculate()" oninput="Calculate()"></input></td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Rate of intereset:</td>
+                    <td><input id="percent" onchange="Calculate()"></input></td>
+                    <td>%</td>
+                </tr>
+                <tr>
+                    <td>Investment Term:</td>
+                    <td colspan="2"><input id="term" onchange="Calculate()" oninput="Calculate()"></input></td>
+                </tr>
+                <tr>
+                    <td>Financial year:</td>
+                    <td><input type="radio" id="d365" onchange="Calculate('d360')">365 days</input></td>
+                    <td><input type="radio" id="d360" onchange="Calculate('d365')">360 days</input></td>
+                </tr>
+                <tr><td style="height: 50px" /></tr>
+                <tr>
+                    <th>Income:</th>
+                    <th colspan="2" id="income">0.00</th>
+                </tr>
+                <tr>
+                    <th>interest earned:</th>
+                    <th colspan="2" id="interest">0.00</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    Calculate = function (id) {
+        if (id !== undefined) { document.getElementById(id).checked = false; }
+
+        var amount = Number(document.getElementById('amount').value);
+        var days = Number(document.getElementById('term').value);
+        var percent = Number(document.getElementById('percent').value);
+        var dyear = document.getElementById('d360').checked || false;
+        var year = (document.getElementById('d360').checked || false) ? 360 : 365;
+        var interest = amount * percent * days / (year * 100);
+        var income = amount + interest;
+
+        debugger;
+        document.getElementById('interest').textContent = interest.toFixed(2);
+        document.getElementById('income').textContent = income.toFixed(2);
+    }
+</script>
