@@ -20,17 +20,19 @@
 					<td>
 						<input type="password" id="password" />
 					</td>
+					<td style="width: 100px">
+					</td>
 				</tr>
 				<tr>
-					<th style="color: red" id="errorMessage" colspan="2"></th>
+					<td colspan="2" align="right">
+						<button onclick="Login()" title="Login">Login</button>
+						<button onclick="RemindPassword()" title="Save">Remind password</button>
+					</td>
 				</tr>
-				<tr><td style="height: 50px" /></tr>
+				<tr>
+					<th style="color: red" id="errorMessage" colspan="3"></th>
+				</tr>
 			</table>
-
-			<div align="center">
-				<button onclick="Login()" title="Login">Login</button>
-				<button onclick="RemindPassword()" title="Save">Remind password</button>
-			</div>
 		</div>
 	</div>
 </body>
