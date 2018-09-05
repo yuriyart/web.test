@@ -2,11 +2,11 @@
 
 namespace Callculator.Controllers
 {
-    public class SettingsController : Controller
-    {
-        public ActionResult Index()
-        {
-            return View();
-        }
-    }
+	public class SettingsController : Controller
+	{
+		public ActionResult Index()
+		{
+			return View();
+		}
+	}
 }

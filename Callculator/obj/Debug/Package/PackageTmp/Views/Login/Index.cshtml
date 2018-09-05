@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Login</title>
+</head>
+<body>
+	<div align="center">
+		<div style="width:500px; height:230px; border:double">
+			<table>
+				<tr>
+					<th>Login:</th>
+					<td>
+						<input id="login"/>
+					</td>
+				</tr>
+				<tr>
+					<th>Password:</th>
+					<td>
+						<input type="password" id="password" />
+					</td>
+				</tr>
+				<tr>
+					<th style="color: red" id="errorMessage" colspan="2"></th>
+				</tr>
+				<tr><td style="height: 50px" /></tr>
+			</table>
+
+			<div align="center">
+				<button onclick="Login()" title="Login">Login</button>
+				<button onclick="RemindPassword()" title="Save">Remind password</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	Login = function() {
+		var login = document.getElementById('login').value;
+		var password = document.getElementById('password').value;
+
+		if (login === 'test' && password === '1234') {
+			window.location.href = "Deposit";
+		}
+
+		if (login.trim() === '' || password.trim() === '') {
+			ShowError("User name and password cannot be empty!");
+			return;
+		}
+
+		if (login === 'test' && password !== '1234') {
+			ShowError("Incorrect password!");
+			return;
+		}
+
+		if (login !== 'test' && password === '1234') {
+			ShowError("Incorrect user name!");
+			return;
+		}
+
+		if (login !== 'test' && password !== '1234') {
+			ShowError("'" + login + "' user doesn't exist!");
+			return;
+		}
+	}
+
+	ShowError = function(error) {
+		document.getElementById('errorMessage').textContent = error;
+	}
+</script>
