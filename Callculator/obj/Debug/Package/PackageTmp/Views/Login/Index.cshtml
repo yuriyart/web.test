@@ -44,7 +44,7 @@
 		var password = document.getElementById('password').value;
 
 		if (login === 'test' && password === '1234') {
-			window.location.href = "Deposit";
+			window.location.href = window.location = '@Url.Action("Index","Deposit")';
 		}
 
 		if (login.trim() === '' || password.trim() === '') {
