@@ -10,13 +10,13 @@
 		<div style="width:500px; height:230px; border:double">
 			<table>
 				<tr>
-					<th>Login:</th>
+					<th class="user">Login:</th>
 					<td>
 						<input id="login"/>
 					</td>
 				</tr>
 				<tr>
-					<th>Password:</th>
+					<th class="pass">Password:</th>
 					<td>
 						<input type="password" id="password" />
 					</td>
@@ -25,8 +25,8 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="right">
-						<button onclick="Login()" title="Login">Login</button>
-						<button onclick="RemindPassword()" title="Save">Remind password</button>
+						<button onclick="Login()" title="Login" id="login">Login</button>
+						<button onclick="RemindPassword()" title="remind" id="remind">Remind pasword</button>
 					</td>
 				</tr>
 				<tr>
