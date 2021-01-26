@@ -11,7 +11,9 @@ First screen - Sign In. Add next fields&buttons:
  * Password filed, labeled 'Password'
  * Login button
  * Remind password button.
-You can use your test account: test/1234.
+You can use your test account:
+ * user: test
+ * pass: newyork1
 
 Second screen - Deposit calculator itself.
  * Deposit amount. Users can put up to 100,000 on deposit.

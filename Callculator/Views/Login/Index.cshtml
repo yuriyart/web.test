@@ -39,11 +39,14 @@
 </html>
 
 <script type="text/javascript">
-	Login = function() {
+    Login = function () {
+        var correctPass = 'newyork1';
+        var correctUser = 'test';
+
 		var login = document.getElementById('login').value;
 		var password = document.getElementById('password').value;
 
-		if (login === 'test' && password === '1234') {
+		if (login === correctUser && password === correctPass) {
 			window.location.href = window.location = '@Url.Action("Index","Deposit")';
 		}
 
@@ -52,17 +55,17 @@
 			return;
 		}
 
-		if (login === 'test' && password !== '1234') {
+		if (login === correctUser && password !== correctPass) {
 			ShowError("Incorrect password!");
 			return;
 		}
 
-		if (login !== 'test' && password === '1234') {
+		if (login !== correctUser && password === correctPass) {
 			ShowError("Incorrect user name!");
 			return;
 		}
 
-		if (login !== 'test' && password !== '1234') {
+		if (login !== correctUser && password !== correctPass) {
 			ShowError("'" + login + "' user doesn't exist!");
 			return;
 		}
