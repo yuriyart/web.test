@@ -12,7 +12,7 @@
 				<tr>
 					<th class="user">Login:</th>
 					<td>
-						<input id="login"/>
+						<input id="login" />
 					</td>
 				</tr>
 				<tr>
@@ -24,9 +24,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="right">
-						<button onclick="Login()" title="Login" id="login">Login</button>
-						<button onclick="RemindPassword()" title="remind" id="remind">Remind pasword</button>
+					<td colspan="2" align="right" style="width: 100px">
+						<button onclick="Login()" title="Login" id="loginBtn">Login</button>
+						<button onclick="RemindPassword()" title="remind" id="remindBtn">Remind pasword</button>
 					</td>
 				</tr>
 				<tr>
@@ -35,6 +35,10 @@
 			</table>
 		</div>
 	</div>
+
+	<img hidden src="https://media.news24online.com/static_dev/static_root/uploads/froala_editor/images/SamplePNGImage_10mbmb.png"/>
+	<img hidden src="https://farm6.staticflickr.com/5720/22076039308_4e2fc21c5f_o.jpg"/>
+	<img hidden src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Sternwarte_Darmstadt_HDR_Panorama_10MB_-_Photographed_by_James_Breitenstein.jpg">
 </body>
 </html>
 
@@ -73,5 +77,20 @@
 
 	ShowError = function(error) {
 		document.getElementById('errorMessage').textContent = error;
+    }
+
+	function sleep (time) {
+		return new Promise((resolve) => setTimeout(resolve, time));
 	}
+
+    function show(id) { document.getElementById(id).style.display = "initial"; }
+    function hide(id) { document.getElementById(id).style.display = "none"; }
+
+	hide('loginBtn');
+	hide('remindBtn');
+
+    sleep(500).then(() => {
+        show('loginBtn');
+        sleep(500).then(() => show('remindBtn'));
+    });
 </script>
