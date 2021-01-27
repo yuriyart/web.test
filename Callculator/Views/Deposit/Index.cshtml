@@ -7,8 +7,9 @@
 </head>
 <body>
 	<div align="center">
-		<div style="width:500px; height:250px; border:double">
+		<div style="width:500px; height:270px; border:double">
 			<div style="text-align: right; cursor: pointer" onclick="window.location='@Url.Action("Index","Settings")'">Settings</div>
+			<div style="text-align: right; cursor: pointer" onclick="window.location='@Url.Action("Index","History")'">History</div>
 
 			<table>
 				<tr>
@@ -23,7 +24,7 @@
 				</tr>
 				<tr>
 					<td>Investment Term: *</td>
-					<td colspan="2"><input id="term" oninput="VerifyNumber('term', 0, 365); Calculate()"/></td>
+					<td colspan="2"><input id="term" oninput="VerifyNumber('term', 0, 365); Calculate()" /></td>
 				</tr>
 				<tr>
 					<td>Start date: *</td>
@@ -153,6 +154,10 @@
 		}
 	}
 
+    Save(){
+
+    }
+
 	Calculate = function (id) {
 		if (id !== undefined) { document.getElementById(id).checked = false; }
 
@@ -166,7 +171,11 @@
 		document.getElementById('interest').value = interest.toFixed(2);
 		document.getElementById('income').value = income.toFixed(2);
 
-		CalculateDate();
+        CalculateDate();
+
+        if (amount !== 0 && days !== 0 && percent !== 0) {
+            Save();
+        }
 	}
 
 	SetCurrentDate();

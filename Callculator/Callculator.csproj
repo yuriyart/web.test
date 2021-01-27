@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepositController.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -109,6 +110,7 @@
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Calculator.pubxml" />
+    <Content Include="Views\History\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

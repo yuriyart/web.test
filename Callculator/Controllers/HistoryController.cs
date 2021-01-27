@@ -2,8 +2,8 @@
 
 namespace Callculator.Controllers
 {
-	public class LoginController : Controller
-	{
+    public class HistoryController : Controller
+    {
 		public ActionResult Index()
 		{
 			return View();
