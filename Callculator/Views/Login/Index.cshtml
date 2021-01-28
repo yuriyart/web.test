@@ -89,8 +89,10 @@
 	hide('loginBtn');
 	hide('remindBtn');
 
-    sleep(500).then(() => {
-        show('loginBtn');
-        sleep(500).then(() => show('remindBtn'));
-    });
+    window.onload = function () {
+	    sleep(500).then(() => {
+			show('loginBtn');
+			sleep(500).then(() => show('remindBtn'));
+		});
+    }
 </script>
