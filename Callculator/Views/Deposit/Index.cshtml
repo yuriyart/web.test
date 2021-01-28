@@ -14,12 +14,12 @@
 			<table>
 				<tr>
 					<td>Deposit Ammount *</td>
-					<td><input id="amount" oninput="VerifyNumber('amount', 0, 100000); Calculate()"></input></td>
+					<td><input id="amount" oninput="VerifyNumber('amount', 0, 100000); Calculate()"></td>
 					<td>$</td>
 				</tr>
 				<tr>
 					<td>Rate of intereset: *</td>
-					<td><input id="percent" oninput="VerifyNumber('percent', 0, 100); Calculate()"></input></td>
+					<td><input id="percent" oninput="VerifyNumber('percent', 0, 100); Calculate()"></td>
 					<td>%</td>
 				</tr>
 				<tr>
@@ -49,8 +49,8 @@
 				</tr>
 				<tr>
 					<td>Financial year: *</td>
-					<td><input type="radio" id="d365" onchange="Calculate('d360')">365 days</input></td>
-					<td><input type="radio" id="d360" onchange="Calculate('d365')">360 days</input></td>
+					<td><input type="radio" id="d365" onchange="Calculate('d360')">365 days</td>
+					<td><input type="radio" id="d360" onchange="Calculate('d365')">360 days</td>
 				</tr>
 				<tr>
 					<th align="left">Income: *</th>
@@ -71,6 +71,7 @@
 </body>
 </html>
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 	Date.prototype.yyyymmdd = function () {
 		var mm = this.getMonth() + 1;
@@ -154,8 +155,30 @@
 		}
 	}
 
-    Save(){
+    Save = function() {
+		var amount = Number(document.getElementById('amount').value);
+		var days = Number(document.getElementById('term').value);
+		var percent = Number(document.getElementById('percent').value);
+		var year = (document.getElementById('d360').checked || false) ? 360 : 365;
+		var interest = document.getElementById('interest').value;
+		var income = document.getElementById('income').value;
+        var endDate = document.getElementById('endDate').value;
 
+		$.ajax({
+			type: 'POST',
+			url: '@Url.Action("Save", "History")',
+            data: {
+                'amount': amount,
+                'percent': percent,
+                'interest': interest,
+                'days': days,
+                'endDate': endDate,
+                'year': year,
+                'income': income
+            },
+			dataType: 'json',
+			success: function (response) { }
+		});
     }
 
 	Calculate = function (id) {
