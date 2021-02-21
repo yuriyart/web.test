@@ -32,6 +32,11 @@
 				<tr>
 					<th style="color: red" id="errorMessage" colspan="3"></th>
 				</tr>
+				<tr>
+					<td colspan="3">
+						<iframe id="remindPasswordView" hidden src="~/Static/RemindPassword.html" style="height:130px"></iframe>
+					</td>
+				</tr>
 			</table>
 		</div>
 	</div>
@@ -69,7 +74,11 @@
 			ShowError("'" + login + "' user doesn't exist!");
 			return;
 		}
-	}
+    }
+
+    RemindPassword = function () {
+        document.getElementById('remindPasswordView').hidden = false;
+    }
 
 	ShowError = function(error) {
 		document.getElementById('errorMessage').textContent = error;
