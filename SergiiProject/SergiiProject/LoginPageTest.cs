@@ -23,5 +23,17 @@ namespace SergiiProject
             Assert.AreEqual("http://localhost:64177/Deposit", actualUrl);
             webDriver.Quit();
         }
+
+        [Test]
+        public void Verify_if_password_accepted_empty()
+        {
+            IWebDriver webDriver = new ChromeDriver();
+            webDriver.Url = "http://localhost:64177/Login";
+            webDriver.FindElement(By.Id("login")).SendKeys("test");
+            webDriver.FindElements(By.Id("login"))[1].Click();
+            string actualError = webDriver.FindElement(By.Id("errorMessage")).Text;
+            Assert.AreEqual("User name and password cannot be empty!", actualError);
+            webDriver.Quit();
+        }
     }
 }
